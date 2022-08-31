@@ -1,6 +1,6 @@
 //Variables
-const btnEnviar = document.querySelector('#enviar');
-const formulario = document.querySelector('#enviar-mail');
+const btnGuardar = document.querySelector('#guardar');
+const formulario = document.querySelector('#guardar-mail');
 
 const email = document.querySelector('#email');
 const asunto = document.querySelector('#asunto');
@@ -24,8 +24,8 @@ function eventListeners(){
 
 //Funciones
 function iniciarApp(){
-    //Bloqueo oton enviar
-    desahabilitarBotonEnviar();
+    //Bloqueo boton guardar
+    desahabilitarBotonGuardar();
 }
 
 
@@ -63,18 +63,18 @@ function validarFormulario(e){
     if ((mailValido) && asunto.value !=='' && mensaje.value !== '') 
     {
      
-        btnEnviar.disabled = false;
-        btnEnviar.classList.remove('cursor-not-allowd','opacity-50');
+        btnGuardar.disabled = false;
+        btnGuardar.classList.remove('cursor-not-allowd','opacity-50');
     }else{
-        desahabilitarBotonEnviar();
+        desahabilitarBotonGuardar();
     }
     
-}
+} 
 
 
-function desahabilitarBotonEnviar(){
-    btnEnviar.disabled = true;
-    btnEnviar.classList.add('cursor-not-allowd','opacity-50');
+function desahabilitarBotonGuardar(){
+    btnGuardar.disabled = true;
+    btnGuardar.classList.add('cursor-not-allowd','opacity-50');
 }
  
 function mostrarError(mensaje){
@@ -102,7 +102,7 @@ function resetearFormulario(){
     iniciarApp();
 }
 
-function enviarEmail(e){
+function guardarEmail(e){
      e.preventDefault()
        
         //mostrar Spinner 
@@ -112,7 +112,7 @@ function enviarEmail(e){
         //Despues de 3 segundos ocultar spinner
         setTimeout(() => {
             spinner.style.display='none';
-            alert("Se envio el mail correctamente."); 
+            alert("Datos de mail guardados correctamente."); 
             resetearFormulario();
         }, 3000);
 
